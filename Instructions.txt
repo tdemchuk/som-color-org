@@ -1,0 +1,38 @@
+VS2019 Community Edition Project
+================================
+Requires 64-bit Windows and OpenGL v3.3+ compatibility
+
+Projects should be setup to run within the IDE already, however in case there's an
+error here's a quick checklist:
+	- Config is x64
+	- Go into Project Preferences -> VC++ Directories and check/add:
+		- '$(SolutionDir)\GL Dependencies\lib;' folder in Library Directories
+		- '$(SolutionDir)\GL Dependencies\include;' folder in Include Directories
+	- Go into Project Preferences -> Linker -> Input and check/add:
+		- "glfw3.lib;" in Additional Dependencies (this should be present in 
+			'GL Dependencies\lib' folder)
+		- "opengl32.lib;" in Additional Dependencies (this lib comes with the 
+			Microsoft SDK and does not need to be downloaded)
+	- Add 'GL Dependencies\glad.c' to project source files (right click 'Source Files'
+		in solution explorer -> Add Existing)
+
+To Execute:
+	1. Either:
+	- Run in VS IDE with Release | x64 configuration (Debug works as well but will be 
+		slower)
+	- Launch desired program executable: Q1.exe or Q2.exe
+
+	2. Follow command line instructions and prompts
+
+Note: In case of VS compilation error, try splitting the two projects into different
+	solutions stored in different directories
+	
+	**Note: Most events are programmed to wait for the user to press [SPACE]
+		before continuing.
+	**Note: Press [ENTER] and leave input blank to select default option for
+		command line prompts that specify a default.
+	**Note: For Q2, the program will prompt the user to enter a filename. If the
+		entered filename corresponds to a file in Cluster Compressed Image
+		format (with extension .cci), the program will open the image in a 
+		viewer. Otherwise, the program will attempt to open the file as an
+		image in a standard format that the user wishes to compress.
